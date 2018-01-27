@@ -1,10 +1,12 @@
 import Vue from "vue";
+import _ from "lodash";
 
 var card = new Vue({
   el: "#card",
   data: {
     title: "Dinosaurs",
     input: "",
+    buttonText: "Add Dinosaur",
     speciesUpdated: 0,
     dinosUpdated: 0,
     items: [
@@ -14,6 +16,9 @@ var card = new Vue({
     ]
   },
   computed: {
+    buttonDisabled: function() {
+      return this.input == "";
+    },
     totalDinos: function() {
       this.dinosUpdated += 1;
       var sum = 0;
@@ -29,6 +34,12 @@ var card = new Vue({
       this.speciesUpdated += 1;
       return this.items.length;
     }
+  },
+  watch: {
+    input: _.debounce(function() {
+      this.buttonText =
+        this.input !== "" ? "Add " + this.input : "Add Dinosaur";
+    }, 250)
   },
   methods: {
     addItem: function(e) {

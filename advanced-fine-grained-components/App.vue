@@ -8,15 +8,12 @@
 import Vue from "vue"
 import Component from "vue-class-component"
 
-export default Component({})(
-class App extends Vue {
-  constructor(){
-    super();
-    this.message = "Hello from class"
-  }
+@Component({})
+export default class App extends Vue {
+  message = "Hello from class"
 
   onClick() {
     this.message = "Goodbye"
   }
-})
+}
 </script>

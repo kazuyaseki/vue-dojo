@@ -12,9 +12,31 @@
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.4",
-    "vue": "^2.5.13"
+    "tailwindcss": "^0.4.1",
+    "vue": "^2.5.13",
+    "vue-class-component": "^6.1.2",
+    "vue-template-compiler": "^2.5.13"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.5.1",
+    "vue-loader": "^13.7.0",
     "webpack": "^3.10.0"
+  },
+  "babel": {
+    "env": {
+      "development": {
+        "plugins": [
+          "transform-vue-jsx"
+        ]
+      },
+      "production": {
+        "plugins": [
+          "transform-vue-jsx"
+        ]
+      }
+    }
   }
 }

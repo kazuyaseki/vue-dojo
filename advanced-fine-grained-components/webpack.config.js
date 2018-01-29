@@ -5,7 +5,14 @@ module.exports = {
     filename: "./bundle.js"
   },
   module: {
-    loaders: []
+    rules: [
+      { test: /\.vue$/, loader: "vue-loader" },
+      {
+        test: /\.js$/,
+        use: "babel-loader",
+        exclude: /node_modules/
+      }
+    ]
   },
   resolve: {
     alias: {

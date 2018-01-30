@@ -10,7 +10,8 @@ import { Component, Prop } from "vue-property-decorator"
 
 @Component({})
 export default class App extends Vue {
-  message = "Hello from class"
+  @Prop({ default: "this is default msg" })
+  message
 
   onClick() {
     this.message = "Goodbye"

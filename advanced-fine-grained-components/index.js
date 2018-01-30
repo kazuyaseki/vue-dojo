@@ -4,5 +4,5 @@ import App from "./App.vue";
 
 new Vue({
   el: "#root",
-  render: h => <App />
+  render: h => <App message="aaa" />
 });

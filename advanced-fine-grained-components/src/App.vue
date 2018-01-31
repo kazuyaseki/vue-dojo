@@ -13,19 +13,7 @@ import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
 import Layout from "./Layout.vue";
 import Settings from "./Settings.vue";
-import { Content, Header, Footer } from "./components";
-
-const Cats = {
-  functional: true,
-  render: (h, { props }) => (
-    <div>
-      {props.names
-        .map(name => `https://robohash.org/${name}?set=set4`)
-        .map(url => <img src={url} alt="" />)
-        .slice(0, props.limit)}
-    </div>
-  )
-};
+import { Cats, Content, Header, Footer } from "./components";
 
 @Component({
   components: {

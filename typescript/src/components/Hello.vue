@@ -1,23 +1,30 @@
 <template>
   <div class="hello">
-    <h1>{{ message }}</h1>
+    <h1>{{ fullMessage }}</h1>
+    <button @click="parentClicked">Hello</button>
   </div>
 </template>
 
 <script lang="ts">
-export default {
-  name: 'hello',
-  data () {
-    return {
-      message: 'Welcome to Your Vue.js App'
-    }
+import Parent from "./Parent";
+import Component from "vue-class-component";
+
+export default class Hello extends Parent {
+  //computed props are gette
+  get fullMessage() {
+    return `${this.message} from TypeScript`;
+  }
+
+  created() {
+    console.log("created");
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 

@@ -1,19 +1,19 @@
 <template>
   <div class="hello">
     <h1>{{ fullMessage }}</h1>
-    <button @click="parentClicked">Hello</button>
-    <router-link to="hello-ts">HelloTS</router-link>
+    <router-link to="/">Hello</router-link>
   </div>
 </template>
 
 <script lang="ts">
-import Parent from "./Parent";
+import Vue from "vue";
 import Component from "vue-class-component";
 
-export default class Hello extends Parent {
+@Component({})
+export default class HelloTS extends Vue {
   //computed props are gette
   get fullMessage() {
-    return `${this.message}`;
+    return `Whatsup`;
   }
 
   created() {

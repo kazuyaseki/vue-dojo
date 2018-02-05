@@ -8,5 +8,10 @@ export default class Parent extends Vue{
   parentClicked() {
     console.log("parent clicked");
   }
+
+  beforeRouteEnter(to, from, next) {
+    console.log("Enter");
+    next();
+  }
 }
 

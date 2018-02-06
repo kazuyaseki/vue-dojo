@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Component from "vue-class-component";
+import { Component, Prop } from "vue-property-decorator";
 import colorDirective from "../color-directive";
 
 @Component({
@@ -18,10 +18,12 @@ import colorDirective from "../color-directive";
 })
 export default class Hello extends Vue {
   message: string = "Hey";
+  @Prop({ type: String, default: "World" })
+  msg: string;
 
   //computed props are gette
   get fullMessage() {
-    return `${this.message}`;
+    return `${this.message} ${this.msg}`;
   }
 
   created() {

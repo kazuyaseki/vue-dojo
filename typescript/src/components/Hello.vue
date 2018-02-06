@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { Component, Prop, Watch } from "vue-property-decorator";
+import { Component, Inject, Prop, Watch } from "vue-property-decorator";
 import colorDirective from "../color-directive";
 import MyCheckbox from "./MyCheckbox.vue";
 
@@ -41,13 +41,20 @@ export default class Hello extends Vue {
   @Prop({ type: String, default: "World" })
   msg: string;
 
-  //computed props are gette
+  @Inject() http;
+
   get fullMessage() {
     return `${this.message} ${this.msg}`;
   }
 
   sumUp() {
     this.count.acum++;
+  }
+
+  created() {
+    this.http.get("https://jsonplaceholder.typicode.com/users").then(data => {
+      this.message = JSON.stringify(data.data);
+    });
   }
 }
 </script>

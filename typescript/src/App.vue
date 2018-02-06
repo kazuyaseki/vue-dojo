@@ -6,14 +6,20 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
+import { Component, Provide } from "vue-property-decorator";
+import axios from "axios";
+
 import Hello from "./components/Hello.vue";
 
-export default {
-  name: "app",
+@Component({
   components: {
     Hello
   }
-};
+})
+export default class App extends Vue {
+  @Provide() http = axios;
+}
 </script>
 
 <style>

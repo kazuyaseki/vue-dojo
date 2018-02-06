@@ -1,8 +1,8 @@
 <template>
   <div class="hello">
-    <h1 v-colorDirective="{ color: 'white', background: '#25aeac'}">{{ message }}</h1>
-    <button @click="parentClicked">Hello</button>
+    <h1 v-colorDirective="{ color: 'white', background: '#25aeac'}">{{ fullMessage }}</h1>
     <router-link to="hello-ts">HelloTS</router-link>
+    <MyCheckbox :title="checkbox.title" :value="checkbox.value" v-model="checkbox.checked"/>
   </div>
 </template>
 
@@ -10,14 +10,24 @@
 import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
 import colorDirective from "../color-directive";
+import MyCheckbox from "./MyCheckbox.vue";
 
 @Component({
   directives: {
     colorDirective
+  },
+  components: {
+    MyCheckbox
   }
 })
 export default class Hello extends Vue {
   message: string = "Hey";
+  checkbox = {
+    title: "Fancy checkbox",
+    value: "checkbox-id",
+    checked: true
+  };
+
   @Prop({ type: String, default: "World" })
   msg: string;
 

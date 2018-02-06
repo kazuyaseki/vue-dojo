@@ -9,9 +9,25 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { createDecorator } from "vue-class-component";
 import { Component, Inject, Prop, Watch } from "vue-property-decorator";
+
 import colorDirective from "../color-directive";
 import MyCheckbox from "./MyCheckbox.vue";
+
+const Log = (str?: string) => {
+  return createDecorator((component, key) => {
+    console.log("Component: ", component);
+    console.log("Decorated key: ", key);
+  });
+};
+const NoCache = createDecorator((component: any, key) => {
+  if (component.computed && component.computed[key]) {
+    component.computed[key].cache = false;
+  } else {
+    throw Error("Not a computed property");
+  }
+});
 
 @Component({
   directives: {
@@ -22,7 +38,7 @@ import MyCheckbox from "./MyCheckbox.vue";
   }
 })
 export default class Hello extends Vue {
-  message: string = "Hey";
+  @Log() message: string = "Hey";
   checkbox = {
     title: "Fancy checkbox",
     value: "checkbox-id",
@@ -52,9 +68,9 @@ export default class Hello extends Vue {
   }
 
   created() {
-    this.http.get("https://jsonplaceholder.typicode.com/users").then(data => {
+    /*this.http.get("https://jsonplaceholder.typicode.com/users").then(data => {
       this.message = JSON.stringify(data.data);
-    });
+    });*/
   }
 }
 </script>

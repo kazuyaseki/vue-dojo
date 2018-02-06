@@ -1,5 +1,7 @@
 # ssr
 
+Study Record for[Build a Server Rendered Vue.js App with Nuxt and Vuex](https://egghead.io/courses/build-a-server-rendered-vue-js-app-with-nuxt-and-vuex)
+
 This Project was setup using vue-cli command `vue init nuxt/starter`
 
 > Nuxt.js project

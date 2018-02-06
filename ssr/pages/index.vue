@@ -8,8 +8,9 @@
     <article class="pa3 pa5-ns">
       <h1 class="f4 bold center mw6">Todos</h1>
       <ul class="list pl0 ml0 center mw6 ba b--light-silver br2">
-        <li :key="todo.task" v-for="todo of todos" class="ph3 pv3 bb b--light-silver">
+        <li :class="{strike: todo.complete}" :key="todo.task" v-for="todo of todos" class="ph3 pv3 bb b--light-silver">
           {{todo.task}}
+          <button @click="toggle(todo)">toggle</button>
         </li>
       </ul>
     </article>
@@ -32,7 +33,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["add"])
+    ...mapActions(["add", "toggle"])
   }
 };
 </script>

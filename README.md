@@ -1,5 +1,10 @@
 # Vue.js の便利情報まとめ
 
+##ドキュメント
+
+* vue-router
+  * [スクロール位置保てるやつ](https://router.vuejs.org/en/advanced/scroll-behavior.html)
+
 ## 設計
 
 * [Vue.js で実現する MVVM パターン Flux アーキテクチャとの距離](https://speakerdeck.com/shinpeim/vue-dot-jsdeshi-xian-surumvvmpatan-fluxakitekutiyatofalseju-li)
@@ -9,4 +14,6 @@
 
 ## チュートリアル
 
-### 動画
+## 動画
+
+[Vue js the Progressive Framework - Evan You](https://www.youtube.com/watch?v=pBBSp_iIiVM)

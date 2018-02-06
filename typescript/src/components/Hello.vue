@@ -1,16 +1,24 @@
 <template>
   <div class="hello">
-    <h1>{{ fullMessage }}</h1>
+    <h1 v-colorDirective="{ color: 'white', background: '#25aeac'}">{{ message }}</h1>
     <button @click="parentClicked">Hello</button>
     <router-link to="hello-ts">HelloTS</router-link>
   </div>
 </template>
 
 <script lang="ts">
-import Parent from "./Parent";
+import Vue from "vue";
 import Component from "vue-class-component";
+import colorDirective from "../color-directive";
 
-export default class Hello extends Parent {
+@Component({
+  directives: {
+    colorDirective
+  }
+})
+export default class Hello extends Vue {
+  message: string = "Hey";
+
   //computed props are gette
   get fullMessage() {
     return `${this.message}`;

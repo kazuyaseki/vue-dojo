@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pv4 dark-red">
     {{ counter }}
     <button @click="increment">+</button>
     <button @click="decrement">-</button>
